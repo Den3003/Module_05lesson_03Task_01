@@ -1,6 +1,6 @@
 'use strict';
 
-const listUser = document.querySelector('.js-list');
+const toDoList = document.querySelector('.js-list');
 
 const delLastChildElement = (list) => {
   if (list.lastElementChild) {
@@ -8,7 +8,7 @@ const delLastChildElement = (list) => {
   }
 };
 
-const delItemsList = list => list.innerHTML = '';
+const clearItemsList = list => list.innerHTML = '';
 
 const addListItem = () => {
   const userString = prompt('Введите строку', '');
@@ -22,14 +22,14 @@ const addListItem = () => {
       return addListItem();
 
     case userString === 'del':
-      delLastChildElement(listUser);
+      delLastChildElement(toDoList);
       break;
 
     case userString === 'clear':
-      delItemsList(listUser);
+      clearItemsList(toDoList);
       break;
     default:
-      listUser.insertAdjacentHTML('beforeend', `<li>${userString}</li>`);
+      toDoList.insertAdjacentHTML('beforeend', `<li>${userString}</li>`);
   };
 
   addListItem();
